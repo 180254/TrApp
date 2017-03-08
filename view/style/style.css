@@ -1,0 +1,107 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+#page-loading, #page-login {
+    margin: 5vh;
+}
+
+.is-blinking {
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+#page-login #link-login {
+    width: 25em;
+}
+
+#page-data > #data-header {
+    width: 100%;
+    height: 7.5em;
+    padding: 1em;
+}
+
+#page-data > #data-body {
+    width: 100vw;
+    height: calc(100% - 7.5em);
+}
+
+#page-data > #data-body > #map-container {
+    width: 60vw;
+    height: calc(100vh - 7.5em);
+    float: left;
+}
+
+#page-data > #data-body > #map-container > #map-area {
+    height: 100%;
+    width: 100%;
+}
+
+#page-data > #data-body > #table-container {
+    width: 40vw;
+    height: calc(100vh - 7.5em);
+    overflow: auto;
+    float: left;
+}
+
+#table-data tr.current {
+    background-color: #e1e1e1;
+}
+
+#some-head p:nth-of-type(1) {
+    float: left;
+    font-weight: bold;
+}
+
+#some-head p:nth-of-type(2) {
+    float: right;
+}
+
+#some-select {
+    padding-top: 0.5em;
+    clear: both;
+}
+
+#current-device, #current-date {
+    font-weight: bold;
+}
+
+#select-button {
+    width: 15%;
+    min-width: 10em;
+}
+
+body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url(loader.gif);
+}
+
+#overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e9e9e9;
+    opacity: 0.5;
+    z-index: 2000001;
+}
+
+#overlay-img {
+    background: url(loader.gif) center center no-repeat;
+    height: 100%;
+    z-index: 2000002;
+}

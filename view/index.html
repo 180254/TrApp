@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>TrApp</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" type="image/png" href="favicon.png"/>
+
+    <link rel="stylesheet" type="text/css" href="bower_components/bulma/css/bulma.css"/>
+    <link rel="stylesheet" type="text/css" href="bower_components/pikaday/css/pikaday.css"/>
+    <link rel="stylesheet" type="text/css" href="style/style.css"/>
+</head>
+
+<body>
+
+<div id="overlay">
+    <div id="overlay-img"></div>
+</div>
+
+<div id="page-loading">
+    <div class="content is-medium">
+        <h3 class="title">Witaj, to jest TrApp.</h3>
+
+        <p class="is-blinking">
+            Trwa wczytywanie danych, proszę czekać ...
+        </p>
+    </div>
+</div>
+
+<div id="page-login" class="is-hidden">
+    <div class="content is-medium">
+        <h3 class="title">Witaj, to jest TrApp.</h3>
+        <p>
+            Najlepsza przeglądarka pomiarów z <i>Trackimo</i>.<br/>
+            Użytkowanie strony wymaga zalogowania się.<br/>
+            Logowanie odbywa się przez usługę <i>Trackimo</i>.<br/>
+        </p>
+        <p>
+            <a id="link-login" class="button is-primary" href="#">Przejdź do logowania.</a>
+        </p>
+    </div>
+
+    <div class="content">
+        <p>
+            <u>Uwaga!</u> Jeżeli podczas logowania zobaczysz komunikat:<br/>
+            <i>{"code":"401","message":"User is not authorized"}</i><br/>
+            wyloguj się z usługi <i>Trackimo</i> i zaloguj jeszcze raz.
+        </p>
+    </div>
+</div>
+
+<div id="page-data" class="is-hidden">
+    <div id="data-header">
+        <div id="some-head">
+            <p>Witaj <span id="user-email">some@user.net</span>, to jest TrApp.</p>
+            <p><a id="link-logout" href="#">Wyloguj.</a></p>
+        </div>
+
+        <div id="some-select">
+            <p class="control has-addons">
+                <span id="select-device-container" class="select">
+                    <select id="select-device" title="Samochód"></select>
+                </span>
+
+                <input id="select-day" class="input is-expanded" type="text" placeholder="Dzień pomiaru.">
+                <input id="select-button" class="button is-primary" type="button" value="Przeglądaj trasę.">
+            </p>
+        </div>
+
+        <div>
+            <p>Aktualnie przeglądasz: <span id="current-device">?</span> z dnia <span id="current-date">?</span>.</p>
+        </div>
+    </div>
+
+    <div id="data-body">
+        <div id="map-container">
+            <div id="map-area">&nbsp;</div>
+        </div>
+
+        <div id="table-container">
+            <table class="table" id="table-data">
+                <thead>
+                <tr>
+                    <th>Nr</th>
+                    <th>Data</th>
+                    <th>Różnica czasu (min)</th>
+                    <th>Różnica ogległości (km)</th>
+                    <th>Prędkość</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div id="scripts">
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/jquery.floatThead/dist/jquery.floatThead.min.js"></script>
+    <script src="bower_components/moment/min/moment.min.js"></script>
+    <script src="bower_components/moment/locale/pl.js"></script>
+    <script src="bower_components/js-cookie/src/js.cookie.js"></script>
+    <script src="bower_components/pikaday/pikaday.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNxqCspUQJRi8shccxOT8hWdCY-_ZSQuQ"></script>
+
+    <script src="script/var.js"></script>
+    <script src="script/api.js"></script>
+    <script src="script/map.js"></script>
+    <script src="script/init.js"></script>
+</div>
+
+</body>
+</html>

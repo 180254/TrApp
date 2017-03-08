@@ -1,0 +1,20 @@
+{
+  "name": "trapp",
+  "description": "trapp",
+  "version": "1.0.0",
+  "author": "180254",
+  "dependencies": {
+    "express": "4.15.2",
+    "express-request-proxy": "2.0.0",
+    "express-session": "1.15.1",
+    "morgan": "1.8.1",
+    "request": "2.80.0",
+    "serve-static": "1.12.1"
+  },
+  "license": "MIT",
+  "main": "server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  }
+}
