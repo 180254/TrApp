@@ -98,11 +98,14 @@ var marker = {
     },
 
     new: function (index, lat, lng) {
-        marker.array.push(new google.maps.Marker({
+        var gmMarker = new google.maps.Marker({
             icon: marker.icon(index, marker.colors.normal),
             position: {lat: lat, lng: lng},
             map: store.map
-        }));
+        });
+
+        store.oms.addMarker(gmMarker);
+        marker.array.push(gmMarker);
     },
 
     mark: function (index, lat, lng) {
@@ -142,6 +145,8 @@ var marker = {
     },
 
     clear: function () {
+        store.oms.clearMarkers();
+
         marker.array.forEach(function (item, i) {
             marker.array[i].setMap(null);
         });
@@ -154,4 +159,3 @@ var marker = {
         return "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + (index + 1) + "|" + color + "|000000";
     }
 };
-

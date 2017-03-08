@@ -64,6 +64,8 @@ function init_page_data() {
     store.map.setZoom(13);
     store.map.setCenter({lat: 53.5753200, lng: 10.0153400});
 
+    store.oms = new OverlappingMarkerSpiderfier(store.map, {legWeight: 1.2});
+
     $("#link-logout").attr("href", "/oauth2/logout");
     $("#page-loading").addClass("is-hidden");
     $("#page-data").removeClass("is-hidden");

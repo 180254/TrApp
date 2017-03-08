@@ -5,7 +5,8 @@ var store = {
     user: null,
     devices: null,
     error: null,
-    map: null
+    map: null,
+    oms: null
 };
 
 var _ = {
