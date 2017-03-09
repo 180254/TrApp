@@ -5,14 +5,6 @@ html, body {
     overflow: hidden;
 }
 
-#page-loading, #page-login {
-    margin: 5vh;
-}
-
-.title {
-    font-weight: 400;
-}
-
 .is-blinking {
     animation: blinker 1s linear infinite;
 }
@@ -23,8 +15,9 @@ html, body {
     }
 }
 
-#page-login #link-login {
+#page-login #a-login {
     width: 25em;
+    max-width: 90vw;
 }
 
 #page-data > #data-header {

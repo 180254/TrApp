@@ -26,7 +26,8 @@
 
 function init_page_login() {
     var login_url = api.login_url_sync(store.config);
-    $("#link-login").attr("href", login_url);
+
+    $("#a-login").attr("href", login_url);
     $("#page-loading").addClass("is-hidden");
     $("#page-login").removeClass("is-hidden");
 }
@@ -66,7 +67,7 @@ function init_page_data() {
 
     store.oms = new OverlappingMarkerSpiderfier(store.map, {legWeight: 1.2});
 
-    $("#link-logout").attr("href", "/oauth2/logout");
+    $("#a-logout").attr("href", "/oauth2/logout");
     $("#page-loading").addClass("is-hidden");
     $("#page-data").removeClass("is-hidden");
 }

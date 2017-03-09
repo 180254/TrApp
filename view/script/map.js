@@ -33,7 +33,7 @@ function set_device_history(deviceHistory) {
     marker.clear();
 
     deviceHistory.forEach(function (item, i) {
-        deviceHistory[i]["time"] = moment(deviceHistory[i]["time"], "X");
+        deviceHistory[i]["time"] = moment(deviceHistory[i]["time"], "X", true);
 
         var current = deviceHistory[i];
         var previous = i === 0 ? null : deviceHistory[i - 1];

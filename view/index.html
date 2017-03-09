@@ -21,37 +21,51 @@
     <div id="overlay-img"></div>
 </div>
 
-<div id="page-loading">
-    <div class="content is-medium">
-        <p class="title is-3">Witaj, to jest TrApp.</p>
+<section id="page-loading" class="hero">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Witaj, to jest <strong>TrApp</strong>.
+            </h1>
+            <div class="content">
 
-        <p class="is-blinking">
-            Trwa wczytywanie danych, proszę czekać ...
-        </p>
+                <p class="is-blinking">
+                    Trwa wczytywanie danych,<br class="is-hidden-tablet"/>proszę czekać ...
+                </p>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
-<div id="page-login" class="is-hidden">
-    <div class="content is-medium">
-        <p class="title is-3">Witaj, to jest TrApp.</p>
-        <p>
-            Najlepsza przeglądarka pomiarów z <i>Trackimo</i>.<br/>
-            Użytkowanie strony wymaga zalogowania się.<br/>
-            Logowanie odbywa się przez usługę <i>Trackimo</i>.<br/>
-        </p>
-        <p>
-            <a id="link-login" class="button is-primary" href="#">Przejdź do logowania.</a>
-        </p>
-    </div>
+<section id="page-login" class="hero is-hidden">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Witaj, to jest <strong>TrApp</strong>.
+            </h1>
 
-    <div class="content">
-        <p>
-            <u>Uwaga!</u> Jeżeli podczas logowania zobaczysz komunikat:<br/>
-            <i>{"code":"401","message":"User is not authorized"}</i><br/>
-            wyloguj się z usługi <i>Trackimo</i> i zaloguj jeszcze raz.
-        </p>
+            <h2 class="subtitle">
+                Najlepsza przeglądarka pomiarów z&nbsp;<a href="http://trackimo.com/">Trackimo</a>&trade;.
+            </h2>
+
+            <div class="content">
+                <p>
+                    Użytkowanie strony wymaga zalogowania się.<br class="is-hidden-mobile"/>
+                    Nie potrzebujesz rejestrować nowego konta.<br class="is-hidden-mobile"/>
+                    Logowanie odbywa się przez usługę Trackimo&trade;.
+                </p>
+                <p>
+                    <a id="a-login" class="button is-primary" href="#">Przejdź do logowania.</a>
+                </p>
+                <p>
+                    <em>Uwaga!</em> Jeżeli podczas logowania zobaczysz komunikat:<br class="is-hidden-mobile"/>
+                    <code>{"code":"401",<wbr/>"message":"User is not authorized"}</code><br class="is-hidden-mobile"/>
+                    wyloguj się z&nbsp;usługi Trackimo&trade; i&nbsp;zaloguj jeszcze raz.
+                </p>
+            </div>
+        </div>
     </div>
-</div>
+</section>
 
 <div id="page-data" class="is-hidden">
     <div id="data-header">
