@@ -15,7 +15,7 @@ var app = express();
 var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
 if (config["express_trust_proxy"]) {
-    app.enable("trust proxy");
+    app.set("trust proxy", config["express_trust_proxy"]);
 }
 
 app.disable("x-powered-by");

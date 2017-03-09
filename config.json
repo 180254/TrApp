@@ -2,5 +2,5 @@
   "oauth2_client_id": "",
   "oauth2_client_secret": "",
   "express_session_secret": "keyboard catty",
-  "express_trust_proxy": true
+  "express_trust_proxy": false
 }
