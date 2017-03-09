@@ -9,6 +9,10 @@ html, body {
     margin: 5vh;
 }
 
+.title {
+    font-weight: 400;
+}
+
 .is-blinking {
     animation: blinker 1s linear infinite;
 }
