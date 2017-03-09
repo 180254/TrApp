@@ -14,14 +14,14 @@ var url = require("url");
 var app = express();
 var config = JSON.parse(fs.readFileSync("config.json", "utf8"));
 
-if (config["trust_proxy"]) {
+if (config["express_trust_proxy"]) {
     app.enable("trust proxy");
 }
 
 app.disable("x-powered-by");
 
 app.use(session({
-    secret: config["session_secret"],
+    secret: config["express_session_secret"],
     resave: false,
     saveUninitialized: true,
     cookie: {}
