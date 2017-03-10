@@ -32,7 +32,7 @@ app.use(serveStatic("view"));
 if (config["express_debug_headers"]) {
     app.use(function (req, res, next) {
         console.log(JSON.stringify(req.headers));
-        next()
+        next();
     });
 }
 
