@@ -18,8 +18,6 @@ if (config["express_trust_proxy"]) {
     app.set("trust proxy", config["express_trust_proxy"]);
 }
 
-app.disable("x-powered-by");
-
 app.use(session({
     secret: config["express_session_secret"],
     resave: false,
@@ -27,8 +25,16 @@ app.use(session({
     cookie: {}
 }));
 
+app.disable("x-powered-by");
 app.use(morgan("combined"));
 app.use(serveStatic("view"));
+
+if (config["express_debug_headers"]) {
+    app.use(function (req, res, next) {
+        console.log(JSON.stringify(req.headers));
+        next()
+    });
+}
 
 // -------------------------------------------------------------------------------------------------------------------
 
