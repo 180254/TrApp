@@ -60,7 +60,10 @@ function set_device_history(deviceHistory) {
 
     if (deviceHistory.length > 0) {
         marker.mark(0, deviceHistory[0].lat, deviceHistory[0].lng);
-        _.$tableData.floatThead();
+
+        _.$tableData.floatThead(
+            $(".floatThead-table").length ? "reflow" : undefined
+        );
     }
 }
 
