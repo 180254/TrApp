@@ -22,7 +22,12 @@ app.use(session({
     secret: config["express_session_secret"],
     resave: false,
     saveUninitialized: true,
-    cookie: {}
+    cookie: {
+        path: "/",
+        httpOnly: true,
+        secure: false,
+        maxAge: 2592000000 // month
+    }
 }));
 
 app.disable("x-powered-by");
