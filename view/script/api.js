@@ -51,7 +51,7 @@ var api = {
             "/history" +
             "?from=" + momentDay.startOf("day").unix() +
             "&to=" + momentDay.endOf("day").unix() +
-            "&limit=256"
+            "&limit=512"
         });
     }
 };
