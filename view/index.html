@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8"/>
@@ -7,71 +7,64 @@
 
     <meta name="description" content="Najlepsza przeglądarka pomiarów z Trackimo.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 
-    <link rel="icon" type="image/png" href="favicon.png"/>
-    <link rel="stylesheet" type="text/css" href="bower_components/bulma/css/bulma.css"/>
-    <link rel="stylesheet" type="text/css" href="bower_components/pikaday/css/pikaday.css"/>
-    <link rel="stylesheet" type="text/css" href="style/style.css"/>
+    <link rel="shortcut icon" href="favicon.ico?"/>
+    <link rel="stylesheet" href="bower_components/bulma/css/bulma.css"/>
+    <link rel="stylesheet" href="bower_components/pikaday/css/pikaday.css"/>
+    <link rel="stylesheet" href="style/style.css"/>
 </head>
 
 <body>
 
-<div id="overlay">
-    <div id="overlay-img"></div>
+<div id="page-loading" class="section">
+    <div class="container">
+        <p class="title">
+            Witaj, to jest <strong>TrApp</strong>.
+        </p>
+
+        <div class="content">
+            <p class="is-blinking">
+                Trwa wczytywanie danych,<br class="is-hidden-tablet"/>
+                proszę czekać ...
+            </p>
+        </div>
+    </div>
 </div>
 
-<section id="page-loading" class="hero">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Witaj, to jest <strong>TrApp</strong>.
-            </h1>
-            <div class="content">
+<div id="page-login" class="section is-hidden">
+    <div class="container">
+        <p class="title">
+            Witaj, to jest <strong>TrApp</strong>.
+        </p>
 
-                <p class="is-blinking">
-                    Trwa wczytywanie danych,<br class="is-hidden-tablet"/>proszę czekać ...
-                </p>
-            </div>
+        <p class="subtitle">
+            Najlepsza przeglądarka pomiarów z&nbsp;<a href="http://trackimo.com/">Trackimo</a>&trade;.
+        </p>
+
+        <div class="content">
+            <p>
+                Użytkowanie strony wymaga zalogowania się.<br class="is-hidden-mobile"/>
+                Nie potrzebujesz rejestrować nowego konta.<br class="is-hidden-mobile"/>
+                Logowanie odbywa się przez usługę Trackimo&trade;.
+            </p>
+            <p>
+                <a id="a-login" class="button is-primary" href="#">Przejdź do logowania.</a>
+            </p>
+            <p>
+                <em>Uwaga!</em> Jeżeli podczas logowania zobaczysz komunikat:<br class="is-hidden-mobile"/>
+                <code>{"code":"401",<wbr/>"message":"User is not authorized"}</code><br class="is-hidden-mobile"/>
+                wyloguj się z&nbsp;usługi Trackimo&trade; i&nbsp;zaloguj jeszcze raz.
+            </p>
         </div>
     </div>
-</section>
+</div>
 
-<section id="page-login" class="hero is-hidden">
-    <div class="hero-body">
-        <div class="container">
-            <h1 class="title">
-                Witaj, to jest <strong>TrApp</strong>.
-            </h1>
-
-            <h2 class="subtitle">
-                Najlepsza przeglądarka pomiarów z&nbsp;<a href="http://trackimo.com/">Trackimo</a>&trade;.
-            </h2>
-
-            <div class="content">
-                <p>
-                    Użytkowanie strony wymaga zalogowania się.<br class="is-hidden-mobile"/>
-                    Nie potrzebujesz rejestrować nowego konta.<br class="is-hidden-mobile"/>
-                    Logowanie odbywa się przez usługę Trackimo&trade;.
-                </p>
-                <p>
-                    <a id="a-login" class="button is-primary" href="#">Przejdź do logowania.</a>
-                </p>
-                <p>
-                    <em>Uwaga!</em> Jeżeli podczas logowania zobaczysz komunikat:<br class="is-hidden-mobile"/>
-                    <code>{"code":"401",<wbr/>"message":"User is not authorized"}</code><br class="is-hidden-mobile"/>
-                    wyloguj się z&nbsp;usługi Trackimo&trade; i&nbsp;zaloguj jeszcze raz.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
 <div id="page-data" class="is-hidden">
     <div id="data-header">
         <div id="some-head">
-            <p>Witaj <span id="user-email">some@user.net</span>, to jest TrApp.</p>
-            <p><a id="link-logout" href="#">Wyloguj.</a></p>
+            <p>Witaj <span id="user-email">some@user.net</span>, to jest <span id="head-app-name">TrApp</span>.</p>
+            <p><a id="a-logout" href="#">Wyloguj.</a></p>
         </div>
 
         <div id="some-select">
@@ -96,13 +89,13 @@
         </div>
 
         <div id="table-container">
-            <table class="table" id="table-data">
+            <table id="table-data" class="table">
                 <thead>
                 <tr>
                     <th>Nr</th>
                     <th>Data</th>
-                    <th>Różnica czasu (min)</th>
-                    <th>Różnica ogległości (km)</th>
+                    <th><abbr title="Czas od ostatniego pomiaru.">Czas</abbr> (min)</th>
+                    <th><abbr title="Dystans od ostatniego pomiaru.">Dystans</abbr> (km)</th>
                     <th>Prędkość</th>
                 </tr>
                 </thead>
@@ -114,6 +107,10 @@
     </div>
 </div>
 
+<div id="overlay" class="is-hidden">
+    <div id="overlay-img"></div>
+</div>
+
 <div id="scripts">
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/jquery.floatThead/dist/jquery.floatThead.min.js"></script>
@@ -122,7 +119,7 @@
     <script src="bower_components/js-cookie/src/js.cookie.js"></script>
     <script src="bower_components/pikaday/pikaday.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNxqCspUQJRi8shccxOT8hWdCY-_ZSQuQ"></script>
-    <script src="bower_components/OverlappingMarkerSpiderfier/dist/oms.min.js"></script>
+    <script src="bower_components/oms/dist/oms.min.js"></script>
 
     <script src="script/var.js"></script>
     <script src="script/api.js"></script>

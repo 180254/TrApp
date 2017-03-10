@@ -5,6 +5,45 @@ html, body {
     overflow: hidden;
 }
 
+/* -----------------------------------------------------------------------------------------------------------------*/
+
+body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url(loader.gif);
+}
+
+#overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #e9e9e9;
+    opacity: 0.5;
+    z-index: 2000001;
+}
+
+#overlay-img {
+    background: url(loader.gif) center center no-repeat;
+    height: 100%;
+    z-index: 2000002;
+}
+
+/* -----------------------------------------------------------------------------------------------------------------*/
+
+#page-loading > .container, #page-login > .container {
+    max-width: 450px;
+}
+
+#page-login #a-login {
+    width: 25em;
+    max-width: 90vw;
+}
+
 .is-blinking {
     animation: blinker 1s linear infinite;
 }
@@ -15,16 +54,41 @@ html, body {
     }
 }
 
-#page-login #a-login {
-    width: 25em;
-    max-width: 90vw;
-}
+/* -----------------------------------------------------------------------------------------------------------------*/
 
 #page-data > #data-header {
     width: 100%;
     height: 7.5em;
     padding: 1em;
 }
+
+#some-head p:nth-of-type(1) {
+    float: left;
+}
+
+#some-head p:nth-of-type(2) {
+    float: right;
+}
+
+#some-select {
+    padding-top: 0.5em;
+    clear: both;
+}
+
+#user-email, #head-app-name, #current-device, #current-date {
+    font-weight: 700;
+}
+
+#select-button {
+    width: 15%;
+    min-width: 10em;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* -----------------------------------------------------------------------------------------------------------------*/
 
 #page-data > #data-body {
     width: 100vw;
@@ -42,6 +106,8 @@ html, body {
     width: 100%;
 }
 
+/* -----------------------------------------------------------------------------------------------------------------*/
+
 #page-data > #data-body > #table-container {
     width: 40vw;
     height: calc(100vh - 7.5em);
@@ -51,54 +117,4 @@ html, body {
 
 #table-data tr.current {
     background-color: #e1e1e1;
-}
-
-#some-head p:nth-of-type(1) {
-    float: left;
-    font-weight: bold;
-}
-
-#some-head p:nth-of-type(2) {
-    float: right;
-}
-
-#some-select {
-    padding-top: 0.5em;
-    clear: both;
-}
-
-#current-device, #current-date {
-    font-weight: bold;
-}
-
-#select-button {
-    width: 15%;
-    min-width: 10em;
-}
-
-body::after {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-    z-index: -1;
-    content: url(loader.gif);
-}
-
-#overlay {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: #e9e9e9;
-    opacity: 0.5;
-    z-index: 2000001;
-}
-
-#overlay-img {
-    background: url(loader.gif) center center no-repeat;
-    height: 100%;
-    z-index: 2000002;
 }

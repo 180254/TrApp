@@ -1,7 +1,7 @@
 "use strict";
 
 $("#select-button").click(function () {
-    _.$overlay.show();
+    _.$overlay.removeClass("is-hidden");
 
     var accountId = store.user["user_id"];
     var deviceIndex = _.$selectDevice.find("option:selected").attr("value");
@@ -18,10 +18,10 @@ $("#select-button").click(function () {
             set_device_history(deviceHistory);
             _.$currentDevice.text(store.devices[deviceIndex]["deviceName"]);
             _.$currentDate.text(momentDay.format("dddd, YYYY-MM-DD"));
-            _.$overlay.hide();
+            _.$overlay.addClass("is-hidden")
         })
         .fail(function () {
-            _.$overlay.hide();
+            _.$overlay.addClass("is-hidden")
         });
 });
 
