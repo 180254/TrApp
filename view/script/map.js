@@ -125,14 +125,13 @@ var marker = {
 
             // reset marked
             if (marker.marked !== null) {
-                var resetFromIncl = Math.max(0, marker.marked - 1);
-                var resetToIncl = Math.min(marker.array.length - 1, marker.marked + 1);
-
-                for (var resetIndex = resetFromIncl; resetIndex <= resetToIncl; resetIndex++) {
-                    if (resetIndex >= index - 1 && resetIndex <= index + 1) {
+                var resetFrom = Math.max(0, marker.marked - 1);
+                var resetTo = Math.min(marker.array.length - 1, marker.marked + 1);
+                for (var reset = resetFrom; reset <= resetTo; reset++) {
+                    if (reset >= index - 1 && reset <= index + 1) {
                         continue;
                     }
-                    marker.array[resetIndex].setIcon(marker.icon(resetIndex, marker.colors.normal));
+                    marker.array[reset].setIcon(marker.icon(reset, marker.colors.normal));
                 }
 
                 _.$tableDataBody.find("tr:nth-of-type(" + (marker.marked + 1) + ")").removeClass("current");
