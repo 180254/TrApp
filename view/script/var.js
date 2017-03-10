@@ -1,5 +1,3 @@
-"use strict";
-
 var store = {
     config: null,
     user: null,
@@ -11,6 +9,8 @@ var store = {
 
 var _ = {
     init: function () {
+        "use strict";
+
         _.$overlay = $("#overlay");
         _.$selectDevice = $("#select-device");
         _.$selectDay = $("#select-day");

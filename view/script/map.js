@@ -1,6 +1,6 @@
-"use strict";
-
 $("#select-button").click(function () {
+    "use strict";
+
     _.$overlay.removeClass("is-hidden");
 
     var accountId = store.user["user_id"];
@@ -10,7 +10,7 @@ $("#select-button").click(function () {
 
     if (!momentDay.isValid()) {
         momentDay = moment();
-        _.$selectDay.val(momentDay.format("YYYY-MM-DD"))
+        _.$selectDay.val(momentDay.format("YYYY-MM-DD"));
     }
 
     api.device_history_async(accountId, deviceId, momentDay)
@@ -18,16 +18,18 @@ $("#select-button").click(function () {
             set_device_history(deviceHistory);
             _.$currentDevice.text(store.devices[deviceIndex]["deviceName"]);
             _.$currentDate.text(momentDay.format("dddd, YYYY-MM-DD"));
-            _.$overlay.addClass("is-hidden")
+            _.$overlay.addClass("is-hidden");
         })
         .fail(function () {
-            _.$overlay.addClass("is-hidden")
+            _.$overlay.addClass("is-hidden");
         });
 });
 
 // -------------------------------------------------------------------------------------------------------------------
 
 function set_device_history(deviceHistory) {
+    "use strict";
+
     _.$tableDataBody.empty();
     _.$tableData.scrollTop(0);
     marker.clear();
@@ -65,10 +67,12 @@ function set_device_history(deviceHistory) {
 // -------------------------------------------------------------------------------------------------------------------
 
 function computeDistance(row1, row2) {
+    "use strict";
     return computeDistance1(row1.lat, row1.lng, row2.lat, row2.lng);
 }
 
 function computeDistance1(lat1, lon1, lat2, lon2) {
+    "use strict";
     var R = 6371; // Radius of the earth in km
     var dLat = deg2rad(lat2 - lat1);  // deg2rad below
     var dLon = deg2rad(lon2 - lon1);
@@ -82,6 +86,7 @@ function computeDistance1(lat1, lon1, lat2, lon2) {
 }
 
 function deg2rad(deg) {
+    "use strict";
     return deg * (Math.PI / 180);
 }
 
@@ -98,6 +103,8 @@ var marker = {
     },
 
     new: function (index, lat, lng) {
+        "use strict";
+
         var gmMarker = new google.maps.Marker({
             icon: marker.icon(index, marker.colors.normal),
             position: {lat: lat, lng: lng},
@@ -109,6 +116,8 @@ var marker = {
     },
 
     mark: function (index, lat, lng) {
+        "use strict";
+
         store.map.setCenter({lat: lat, lng: lng});
 
         if (marker.marked !== index) {
@@ -145,8 +154,9 @@ var marker = {
     },
 
     clear: function () {
-        store.oms.clearMarkers();
+        "use strict";
 
+        store.oms.clearMarkers();
         marker.array.forEach(function (item, i) {
             marker.array[i].setMap(null);
         });
@@ -156,6 +166,10 @@ var marker = {
     },
 
     icon: function (index, color) {
-        return "https://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=" + (index + 1) + "|" + color + "|000000";
+        "use strict";
+
+        return "https://chart.apis.google.com/chart" +
+            "?chst=d_map_pin_letter" +
+            "&chld=" + (index + 1) + "|" + color + "|000000";
     }
 };

@@ -1,6 +1,6 @@
-"use strict";
+$(function () {
+    "use strict";
 
-(function () {
     moment.locale("pl");
 
     api.config_async()
@@ -19,15 +19,15 @@
         .fail(function (error) {
             store.error = error;
             init_page_login();
-        })
-}());
+        });
+});
 
 // -------------------------------------------------------------------------------------------------------------------
 
 function init_page_login() {
-    var login_url = api.login_url_sync(store.config);
+    "use strict";
 
-    $("#a-login").attr("href", login_url);
+    $("#a-login").attr("href", api.login_url_sync(store.config));
     $("#page-loading").addClass("is-hidden");
     $("#page-login").removeClass("is-hidden");
 }
@@ -35,10 +35,12 @@ function init_page_login() {
 // -------------------------------------------------------------------------------------------------------------------
 
 function init_page_data() {
+    "use strict";
+
     _.init();
     $("#user-email").text(store.user["email"]);
 
-    new Pikaday({
+    var pikaSelector = new Pikaday({
         field: _.$selectDay[0],
         format: "YYYY-MM-DD",
         firstDay: 1,
