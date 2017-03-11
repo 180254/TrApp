@@ -11,7 +11,7 @@ var _ = {
     init: function () {
         "use strict";
 
-        _.$overlay = $("#overlay");
+        _.$overlay = $(".overlay");
         _.$selectDevice = $("#select-device");
         _.$selectDay = $("#select-day");
         _.$selectButton = $("#select-button");

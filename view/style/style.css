@@ -16,20 +16,23 @@ body::after {
     content: url(loader.gif);
 }
 
-#overlay {
+.overlay {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+#overlay-one {
     background-color: #e9e9e9;
-    opacity: 0.5;
+    opacity: 0.50;
     z-index: 2000001;
 }
 
-#overlay-img {
-    background: url(loader.gif) center center no-repeat;
-    height: 100%;
+#overlay-two {
+    background: url(loader.gif) 50% 40% no-repeat;
+    opacity: 0.75;
     z-index: 2000002;
 }
 
