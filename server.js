@@ -108,6 +108,7 @@ app.get("/oauth2/handler", function (req, res) {
             req.session.access = body;
             req.session.expire_unix_ms = Date.now() + req.session.access["expires_in"] * 1000;
             // console.log("expire_unix_ms: " + new Date(req.session.expire_unix_ms));
+            console.log("TOKEN-EXCHANGE: " + req.ip + "," + JSON.stringify(body));
         }
 
         res.redirect("/");
@@ -117,8 +118,25 @@ app.get("/oauth2/handler", function (req, res) {
 // -------------------------------------------------------------------------------------------------------------------
 
 app.get("/oauth2/logout", function (req, res) {
+    var session = req.session;
     req.session.destroy();
     res.redirect("/");
+
+    if (session.access !== undefined) {
+        var token = session.access["access_token"];
+
+        if (session.expire_unix_ms > Date.now()) {
+            request({
+                uri: "https://app.trackimo.com/api/v3/oauth2/revoke?token=" + encodeURIComponent(token) + "1"
+
+            }, function (error, response, body) {
+                console.log("TOKEN-REVOKE: " + req.ip + "," + token + "," + response.statusCode);
+            });
+
+        } else {
+            console.log("TOKEN-REVOKE: " + req.ip + "," + token + "," + session.expire_unix_ms);
+        }
+    }
 });
 
 // -------------------------------------------------------------------------------------------------------------------
