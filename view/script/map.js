@@ -56,14 +56,14 @@ function set_device_history(deviceHistory) {
                     })
             );
 
-        marker.new(i, current.lat, current.lng);
+        marker.new(i, current);
     });
 
     if (deviceHistory.length > 0) {
         marker.mark(0, deviceHistory[0].lat, deviceHistory[0].lng);
 
         _.$tableData.floatThead(
-            $(".floatThead-table").length ? "reflow" : undefined
+            $(".floatThead-table").length == 0 ? undefined : "reflow"
         );
     }
 }
@@ -101,18 +101,19 @@ var marker = {
     marked: null,
 
     colors: {
-        normal: "FE6256",
-        selected: "359935",
-        neighbour: "7fe07f"
+        normal: "#FE6256".substring(1),
+        selected: "#2c6b2c".substring(1),
+        neighbour: "#7fe07f".substring(1)
     },
 
-    new: function (index, lat, lng) {
+    new: function (index, item) {
         "use strict";
 
         var gmMarker = new google.maps.Marker({
             icon: marker.icon(index, marker.colors.normal),
-            position: {lat: lat, lng: lng},
-            map: store.map
+            position: {lat: item.lat, lng: item.lng},
+            map: store.map,
+            title: (index + 1).toString() + "/" + item["type"] + "/" + item["time"].format("HH:mm:ss")
         });
 
         store.oms.addMarker(gmMarker);
