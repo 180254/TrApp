@@ -65,7 +65,7 @@ function init_page_data() {
     }
     store.map = new google.maps.Map(document.getElementById("map-area"));
     store.map.setZoom(13);
-    store.map.setCenter({lat: 53.5753200, lng: 10.0153400});
+    store.map.setCenter({lat: 53.551085, lng: 9.993682});
 
     store.oms = new OverlappingMarkerSpiderfier(store.map, {legWeight: 1.2});
 
