@@ -81,7 +81,6 @@ body::after {
 
 #select-button {
     width: 15%;
-    min-width: 10em;
 }
 
 select::-ms-expand {

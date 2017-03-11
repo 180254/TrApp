@@ -46,10 +46,11 @@ function set_device_history(deviceHistory) {
             .append(
                 $("<tr>")
                     .append($("<td>").text(i + 1))
-                    .append($("<td>").text(current["time"].format("YYYY-MM-DD HH:mm:ss")))
+                    .append($("<td>").text(current["type"]))
+                    .append($("<td>").text(current["time"].format("YYYY-MM-DD\xa0HH:mm:ss")))
                     .append($("<td>").text(diffTime.asMinutes().toFixed(1)))
                     .append($("<td>").text(distance.toFixed(2)))
-                    .append($("<td>").text(current.speed))
+                    .append($("<td>").text(current["speed"]))
                     .click(function () {
                         marker.mark(i, current.lat, current.lng);
                     })
