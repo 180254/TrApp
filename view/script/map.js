@@ -104,7 +104,7 @@ var marker = {
 
     colors: {
         normal: "#FE6256".substring(1),
-        selected: "#2c6b2c".substring(1),
+        selected: "#228F5B".substring(1),
         neighbour: "#7fe07f".substring(1)
     },
 
