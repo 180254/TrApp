@@ -17,7 +17,7 @@ $(function () {
             init_page_data();
         })
         .fail(function (error) {
-            console.log(error);
+            console.log(".");
             store.error = error;
             init_page_login();
         });

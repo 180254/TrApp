@@ -21,7 +21,7 @@ $("#select-button").click(function () {
             _.$overlay.addClass("is-hidden");
         })
         .fail(function (error) {
-            console.log(error);
+            console.log(".");
             store.error = error;
             _.$overlay.addClass("is-hidden");
         });
