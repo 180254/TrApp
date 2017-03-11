@@ -20,7 +20,9 @@ $("#select-button").click(function () {
             _.$currentDate.text(momentDay.format("dddd, YYYY-MM-DD"));
             _.$overlay.addClass("is-hidden");
         })
-        .fail(function () {
+        .fail(function (error) {
+            console.log(error);
+            store.error = error;
             _.$overlay.addClass("is-hidden");
         });
 });
