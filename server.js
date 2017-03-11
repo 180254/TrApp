@@ -66,6 +66,7 @@ app.all("/api/*", function (req, res, next) {
 
     var validToken = req.session.expire_unix_ms > Date.now();
     if (!validToken) {
+    	req.session.access = undefined;
         req.session.expire_unix_ms = undefined;
         res.status(401).send({status: "error", code: 103, info: "Token expired."});
         return;
@@ -120,7 +121,7 @@ app.get("/oauth2/logout", function (req, res) {
     req.session.destroy();
     res.redirect("/");
 
-    if (session.access !== undefined && session.expire_unix_ms > Date.now()) {
+    if (session.expire_unix_ms !== undefined && session.expire_unix_ms > Date.now()) {
         var token = session.access["access_token"];
 
         request({
