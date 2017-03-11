@@ -111,11 +111,13 @@ var marker = {
     new: function (index, item) {
         "use strict";
 
+        var title = (index + 1).toString() + "/" + item["type"] + "/" + item["time"].format("HH:mm:ss");
+
         var gmMarker = new google.maps.Marker({
             icon: marker.icon(index, marker.colors.normal),
             position: {lat: item.lat, lng: item.lng},
             map: store.map,
-            title: (index + 1).toString() + "/" + item["type"] + "/" + item["time"].format("HH:mm:ss")
+            title: title
         });
 
         store.oms.addMarker(gmMarker);
@@ -138,6 +140,7 @@ var marker = {
                     if (reset >= index - 1 && reset <= index + 1) {
                         continue;
                     }
+
                     marker.array[reset].setIcon(marker.icon(reset, marker.colors.normal));
                 }
 
