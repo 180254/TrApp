@@ -21,18 +21,21 @@ if (config["express_trust_proxy"]) {
 app.use(session({
     secret: config["express_session_secret"],
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: {
         path: "/",
         httpOnly: true,
-        secure: false,
-        maxAge: 3 * 30 * 24 * 60 * 60 * 1000 // 3 months in milliseconds
+        secure: config["express_session_secure"],
+        maxAge: 6 * 30 * 24 * 60 * 60 * 1000 // 6 months (ms)
     }
+}));
+
+app.use(serveStatic("static", {
+    maxAge: 30 * 24 * 60 * 60 * 1000 // 1 month (ms)
 }));
 
 app.disable("x-powered-by");
 app.use(morgan("combined"));
-app.use(serveStatic("view"));
 
 if (config["express_debug_headers"]) {
     app.use(function (req, res, next) {
@@ -66,8 +69,7 @@ app.all("/api/*", function (req, res, next) {
 
     var validToken = req.session.expire_unix_ms > Date.now();
     if (!validToken) {
-        req.session.access = undefined;
-        req.session.expire_unix_ms = undefined;
+        req.session.destroy();
         res.status(401).send({status: "error", code: 103, info: "Token expired."});
         return;
     }

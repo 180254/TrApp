@@ -2,6 +2,7 @@
   "oauth2_client_id": "",
   "oauth2_client_secret": "",
   "express_session_secret": "keyboard catty",
+  "express_session_secure": false,
   "express_trust_proxy": "loopback",
   "express_debug_headers": false
 }

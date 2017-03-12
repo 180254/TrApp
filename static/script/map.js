@@ -111,7 +111,7 @@ var marker = {
     new: function (index, item) {
         "use strict";
 
-        var title = (index + 1).toString() + "/" + item["type"] + "/" + item["time"].format("HH:mm:ss");
+        var title = (index + 1) + "/" + item["type"] + "/" + item["time"].format("HH:mm:ss");
 
         var gmMarker = new google.maps.Marker({
             icon: marker.icon(index, marker.colors.normal),
