@@ -49,7 +49,18 @@ function set_device_history(deviceHistory) {
                 $("<tr>")
                     .append($("<td>").text(i + 1))
                     .append($("<td>").text(current["type"]))
-                    .append($("<td>").text(current["time"].format("YYYY-MM-DD\xa0HH:mm:ss")))
+                    .append($("<td>")
+                        .append($('<span />', {
+                                class: "table-data-date scrollbar-fix",
+                                text: current["time"].format("YYYY-MM-DD\xa0")
+                            })
+                        )
+                        .append($('<span />', {
+                                class: "table-data-time",
+                                text: current["time"].format("HH:mm:ss")
+                            })
+                        )
+                    )
                     .append($("<td>").text(diffTime.asMinutes().toFixed(1)))
                     .append($("<td>").text(distance.toFixed(2)))
                     .append($("<td>").text(current["speed"]))
