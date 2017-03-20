@@ -6,7 +6,7 @@
     "180254"
   ],
   "dependencies": {
-    "bulma": "0.4.0",
+    "bulma": "0.3.2",
     "google_maps_api_v3": "https://raw.githubusercontent.com/google/closure-compiler/d763194defeb045ee0a887276222904730de4957/contrib/externs/maps/google_maps_api_v3.js",
     "jquery": "3.2.0",
     "jquery.floatThead": "2.0.3",
